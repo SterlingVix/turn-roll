@@ -39,6 +39,12 @@ class Home extends React.Component<{}> {
             </a>
           </Typography>
         </Content>
+
+        <Content>
+          <Typography type="body2" paragraph>
+            Here is maybe a new card?
+          </Typography>
+        </Content>
       </Container>
     );
   }
