@@ -33,3 +33,4 @@ firebase-error.log*
 # Webstorm
 /.idea
 .idea/*
+.idea/workspace.xml

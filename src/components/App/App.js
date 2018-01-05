@@ -12,7 +12,6 @@ import { MuiThemeProvider } from 'material-ui/styles';
 
 import theme from '../../theme';
 import Toolbar from './Toolbar';
-import MiniDrawer from './MiniDrawer';
 import Footer from './Footer';
 
 const Container = styled.div`
