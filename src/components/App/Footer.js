@@ -26,7 +26,7 @@ const Separator = styled.span`
   padding-left: 0.5em;
 `;
 
-const ExtLink = styled.a`
+export const ExtLink = styled.a`
   &,
   &:hover,
   &:active,
@@ -48,6 +48,8 @@ class Footer extends React.Component<{}> {
         <ExtLink href="https://github.com/kriasoft">Kriasoft</ExtLink>
         <Separator>|</Separator>
         <ExtLink href="/privacy">Privacy Policy</ExtLink>
+        <Separator>|</Separator>
+        <ExtLink href="/DiceBag">DiceBag</ExtLink>
       </Container>
     );
   }

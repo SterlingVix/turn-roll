@@ -46,6 +46,14 @@ const routes = [
       body: <Privacy user={user} />,
     }),
   },
+  {
+    path: '/DiceBag',
+    components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
+    render: ({ user, components: [DiceBag] }) => ({
+      title: 'TEMP Dice Bag view for dice',
+      body: <DiceBag user={user} />,
+    }),
+  },
 ];
 
 function resolveRoute(ctx) {
@@ -67,5 +75,9 @@ function resolveRoute(ctx) {
     }),
   );
 }
+
+export const routeNames = {
+  DiceBag: 'DiceBag',
+};
 
 export default new UniversalRouter(routes, { resolveRoute });

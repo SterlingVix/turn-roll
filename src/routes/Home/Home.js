@@ -11,6 +11,9 @@ import styled from 'styled-components';
 import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
+import { ExtLink } from '../../components/App/Footer';
+import { Centered } from '../../components/App/App';
+
 const Container = styled.div`
   max-width: 600px;
   box-sizing: border-box;
@@ -26,6 +29,14 @@ class Home extends React.Component<{}> {
   render() {
     return (
       <Container>
+        <Content>
+          <Typography type="headline" paragraph>
+            <Centered>
+              <ExtLink href="/DiceBag">Click to go to the Dice Bag!</ExtLink>
+            </Centered>
+          </Typography>
+        </Content>
+
         <Content>
           <Typography type="headline" gutterBottom>
             <strong>React Starter Kit</strong> for Firebase and GraphQL
