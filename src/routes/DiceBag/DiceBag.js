@@ -67,7 +67,7 @@ const ButtonReroll = styled(Button)`
   text-align: center;
 `;
 
-class Home extends React.Component<{}> {
+class Home extends Component<{}> {
   state = {
     rows: [
       { die: 100, size: 6 },

@@ -30,11 +30,11 @@ class Home extends React.Component<{}> {
     return (
       <Container>
         <Content>
-          <Typography type="headline" paragraph>
-            <Centered>
+          <Centered>
+            <Typography type="headline" paragraph>
               <ExtLink href="/DiceBag">Click to go to the Dice Bag!</ExtLink>
-            </Centered>
-          </Typography>
+            </Typography>
+          </Centered>
         </Content>
 
         <Content>
