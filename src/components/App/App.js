@@ -46,9 +46,14 @@ export const Centered = styled.div`
 class App extends React.Component<{}> {
   componentDidMount() {
     window.document.title = this.props.route.title;
+    if (!this.props.user) {
+      console.warn('No this.props.user on App.componentDidMount');
+    } else {
+      console.log(`  this.props.user.uid`, this.props.user.uid);
+    }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(nextProps) {
     window.document.title = this.props.route.title;
   }
 

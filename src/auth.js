@@ -9,7 +9,11 @@
 import '@firebase/auth';
 import firebase from '@firebase/app';
 
-const callbacks = new Set();
+const callbacks = new Set([
+  input => {
+    console.log(`  callbacks 1 input`, input);
+  },
+]);
 
 export default {
   signIn() {
@@ -33,6 +37,8 @@ export default {
   },
 
   onAuthStateChanged(callback: any => void) {
+    console.log(`  callback`, callback);
+    // firebase.auth().onAuthStateChanged(onLogin);
     firebase.auth().onAuthStateChanged(callback);
   },
 };

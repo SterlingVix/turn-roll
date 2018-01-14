@@ -35,6 +35,7 @@ firebase.initializeApp({
 const render = props =>
   new Promise((resolve, reject) => {
     try {
+      console.log(`  props`, props);
       ReactDOM.render(
         <App {...props} />,
         document.getElementById('root'),
@@ -58,6 +59,9 @@ const resolve = promise =>
 let promise;
 
 auth.onAuthStateChanged(user => {
+  const facebookID = user && user.uid;
+  console.log(`  facebookID`, facebookID);
+
   if (!promise) {
     promise = Promise.resolve({ user, location: history.location });
     history.listen(location => {
