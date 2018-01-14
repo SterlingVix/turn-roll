@@ -10,5 +10,13 @@
   //     ]
   //   }
   // ]
-  "indexes": []
+  "indexes": [
+    //    {
+    //      "collectionId": "userIds",
+    //      "fields": [
+    //        { "fieldPath": "foo", "mode": "ASCENDING" },
+    //        { "fieldPath": "bar", "mode": "DESCENDING" }
+    //      ]
+    //    }
+  ]
 }
