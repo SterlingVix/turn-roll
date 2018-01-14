@@ -27,12 +27,15 @@ const Content = styled(Card)`
 
 class Home extends React.Component<{}> {
   render() {
+    const linkText = `${
+      this.props.user ? `Hi ${this.props.user.displayName}! ` : ''
+    }Click here to see the Dice Bag!`;
     return (
       <Container>
         <Content>
           <Centered>
             <Typography type="headline" paragraph>
-              <ExtLink href="/DiceBag">Click to go to the Dice Bag!</ExtLink>
+              <ExtLink href="/DiceBag">{linkText}</ExtLink>
             </Typography>
           </Centered>
         </Content>

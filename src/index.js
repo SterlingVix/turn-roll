@@ -17,17 +17,25 @@ import routes from './routes';
 import registerServiceWorker from './registerServiceWorker';
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyAsuqpqt29-TIwBAu01Nbt5QnC3FIKO4A4',
-  authDomain: 'react-firebase-graphql.firebaseapp.com',
-  databaseURL: 'https://react-firebase-graphql.firebaseio.com',
-  projectId: 'react-firebase-graphql',
-  storageBucket: 'react-firebase-graphql.appspot.com',
-  messagingSenderId: '564620986275',
+  // apiKey: 'AIzaSyAsuqpqt29-TIwBAu01Nbt5QnC3FIKO4A4',
+  // authDomain: 'react-firebase-graphql.firebaseapp.com',
+  // databaseURL: 'https://react-firebase-graphql.firebaseio.com',
+  // projectId: 'react-firebase-graphql',
+  // storageBucket: 'react-firebase-graphql.appspot.com',
+  // storageBucket: 'react-firebase-graphql.appspot.com',
+  // messagingSenderId: '564620986275',
+  apiKey: 'AIzaSyCAftoU8G615Pcpl6dApwJLUTuL6Y0n-zA',
+  authDomain: 'turn-roll.firebaseapp.com',
+  databaseURL: 'https://turn-roll.firebaseio.com',
+  projectId: 'turn-roll',
+  storageBucket: 'turn-roll.appspot.com',
+  messagingSenderId: '544941134470',
 });
 
 const render = props =>
   new Promise((resolve, reject) => {
     try {
+      console.log(`  props`, props);
       ReactDOM.render(
         <App {...props} />,
         document.getElementById('root'),
@@ -51,6 +59,9 @@ const resolve = promise =>
 let promise;
 
 auth.onAuthStateChanged(user => {
+  const facebookID = user && user.uid;
+  console.log(`  facebookID`, facebookID);
+
   if (!promise) {
     promise = Promise.resolve({ user, location: history.location });
     history.listen(location => {
