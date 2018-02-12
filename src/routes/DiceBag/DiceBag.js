@@ -65,6 +65,7 @@ const DieValue = styled.div`
 const ButtonReroll = styled(Button)`
   padding: 0.33em;
   text-align: center;
+  background-color: rgba(30, 132, 62, 0.47);
 `;
 
 class Home extends Component<{}> {

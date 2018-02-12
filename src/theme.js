@@ -18,7 +18,7 @@ export default createMuiTheme({
   overrides: {
     MuiButton: {
       raisedPrimary: {
-        color: 'white',
+        color: 'black',
       },
     },
   },
