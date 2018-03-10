@@ -35,7 +35,7 @@ class Home extends React.Component<{}> {
         <Content>
           <Centered>
             <Typography type="headline" paragraph>
-              <ExtLink href="/DiceBag">{linkText}</ExtLink>
+              <ExtLink href="/dicebag">{linkText}</ExtLink>
             </Typography>
           </Centered>
         </Content>

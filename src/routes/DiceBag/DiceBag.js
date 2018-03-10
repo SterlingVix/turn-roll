@@ -114,9 +114,9 @@ class Home extends Component<{}> {
       rows: this.state.rows.map(this.setResults),
     });
 
-  renderRow = row => {
+  renderRow = (row, index) => {
     return (
-      <Row>
+      <Row key={`DiceRow-${index}`}>
         <DieValue>{row.die}s:</DieValue>
         {row.results.map(this.renderResult)}
       </Row>
@@ -141,9 +141,9 @@ class Home extends Component<{}> {
               Reroll
             </ButtonReroll>
           </Typography>
-          <Typography type="body1" paragraph>
-            {rows.map(this.renderRow)}
-          </Typography>
+          {/*<Typography type="body1" paragraph>*/}
+          {rows.map(this.renderRow)}
+          {/*</Typography>*/}
         </Content>
       </Container>
     );
