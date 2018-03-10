@@ -10,7 +10,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import theme from 'theme';
+import theme from '../../theme';
 import Toolbar from './Toolbar';
 import Footer from './Footer';
 
