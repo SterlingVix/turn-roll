@@ -24,16 +24,15 @@ const Content = styled(Card)`
 `;
 
 const Row = styled(Card)`
+  /* Center contents and apply equal margins between. */
+  display: flex;
+  justify-content: space-around; /* or space-between */
+  align-items: center;
   padding: 0.66em;
   border: solid pink 1px;
   border-radius: 3px;
 
-  // Center contents and apply equal margins between.
-  display: flex;
-  justify-content: space-around; // or space-between
-  align-items: center;
-
-  // All children are flex, too. :)
+  /* All children are flex, too. :) */
   & * {
     display: flex;
     justify-content: space-around;
@@ -42,7 +41,7 @@ const Row = styled(Card)`
 `;
 
 const Result = styled(Card)`
-  // padding: 0.66em; deferring to flex for spacing.
+  /* padding: 0.66em; deferring to flex for spacing. */
   width: 3em;
   height: 3em;
   border: solid black 1px;
@@ -54,12 +53,11 @@ const valueColor = 'orange';
 const DieValue = styled.div`
   width: 3em;
   height: 3em;
+  margin: 0 0.5em;
+  font-size: 1.5rem;
+  color: ${valueColor};
   border-bottom: solid ${valueColor} 1px;
   border-radius: 0.3em;
-  margin: 0 0.5em;
-
-  color: ${valueColor};
-  font-size: 1.5rem;
 `;
 
 const ButtonReroll = styled(Button)`

@@ -10,35 +10,26 @@ import React from 'react';
 import styled from 'styled-components';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import theme from '../../theme';
+import theme from 'theme';
 import Toolbar from './Toolbar';
 import Footer from './Footer';
 
 const Container = styled.div`
   height: 100vh;
-  // background: url(https://koistya.github.io/files/background-v1-1920x1080.jpg) no-repeat center center fixed;
-  background-color: rgba(
-    168,
-    109,
-    0,
-    0.5
-  ); // orange with a kind of grey overlay.
+
+  /* background: url(https://koistya.github.io/files/background-v1-1920x1080.jpg) no-repeat center center fixed; */
+
+  /* orange with a kind of grey overlay. */
+  background-color: rgba(168, 109, 0, 0.5);
   background-size: cover;
 `;
 
 export const Centered = styled.div`
-  // Center contents and apply equal margins between.
+  /* Center contents and apply equal margins between. */
   display: flex;
-  justify-content: space-around; // or space-between
+  justify-content: space-around; /* or space-between */
   align-items: center;
   text-align: center;
-
-  // All children are flex, too. :)
-  // & * {
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-  // }
 `;
 
 //http://koistya.github.io/files/background-v1-1920x1080.jpg
