@@ -31,6 +31,14 @@ const routes = [
     }),
   },
   {
+    path: '/turn-roll',
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
+    render: ({ user, components: [Home] }) => ({
+      title: 'React Starter Kit for Firebase and GraphQL',
+      body: <Home user={user} />,
+    }),
+  },
+  {
     path: '/account',
     components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
     render: ({ user, components: [Account] }) => ({
