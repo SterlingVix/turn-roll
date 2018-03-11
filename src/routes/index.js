@@ -23,6 +23,14 @@ const routes = [
     }),
   },
   {
+    path: '/',
+    components: () => [import(/* webpackChunkName: 'home' */ './Home')],
+    render: ({ user, components: [Home] }) => ({
+      title: 'React Starter Kit for Firebase and GraphQL',
+      body: <Home user={user} />,
+    }),
+  },
+  {
     path: '/account',
     components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
     render: ({ user, components: [Account] }) => ({
@@ -77,7 +85,11 @@ function resolveRoute(ctx) {
 }
 
 export const routeNames = {
+  About: 'about',
+  Account: 'account',
   DiceBag: 'dicebag',
+  Home: '',
+  Privacy: 'privacy',
 };
 
 export default new UniversalRouter(routes, { resolveRoute });

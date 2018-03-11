@@ -85,7 +85,7 @@ class Home extends Component<{}> {
 
   setResults = row => {
     // returns an Array[]
-    const { die, results, size } = row;
+    const { die, size } = row;
 
     // TODO: what's the best way to do this? Is this state too nested?
     let newResults = [];
@@ -93,13 +93,6 @@ class Home extends Component<{}> {
     for (let i = 0; i < size; i++) {
       newResults.push(1 + Math.floor(Math.random() * Math.floor(die)));
     }
-
-    console.log(
-      'Removing old results:',
-      results,
-      'and replacing with new results:',
-      newResults,
-    );
 
     // Return a new Row value:
     return {
@@ -123,11 +116,9 @@ class Home extends Component<{}> {
     );
   };
 
-  renderResult = (thisDie, index, array) => {
-    console.log(`  array`, array);
-
-    return <Result key={`result-${index}`}>{thisDie}</Result>;
-  };
+  renderResult = (thisDie, index) => (
+    <Result key={`result-${index}`}>{thisDie}</Result>
+  );
 
   render() {
     const { rows } = this.state;
