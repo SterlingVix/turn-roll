@@ -9,13 +9,18 @@
 import React from 'react';
 import UniversalRouter from 'universal-router/main.js';
 
+// Not sure why `/turn-roll/` isn't resolving automatically, but whatever, this works for now.
+// NOTE: This page was very helpful: https://github.com/rafrex/spa-github-pages
+const rootPath = '/turnRoll';
+const createPath = pathFragment => `${rootPath}${pathFragment}`;
+
 // The list of all application routes where each route contains a URL path string (pattern),
 // the list of components to load asynchroneously (chunks), data requirements (GraphQL query),
 // and a render() function which shapes the result to be passed into the top-level (App) component.
 // For more information visit https://github.com/kriasoft/universal-router
 const routes = [
   {
-    path: '',
+    path: createPath(''),
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'React Starter Kit for Firebase and GraphQL',
@@ -23,7 +28,7 @@ const routes = [
     }),
   },
   {
-    path: '/',
+    path: createPath('/'),
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'React Starter Kit for Firebase and GraphQL',
@@ -31,15 +36,7 @@ const routes = [
     }),
   },
   {
-    path: '/turn-roll',
-    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
-    render: ({ user, components: [Home] }) => ({
-      title: 'React Starter Kit for Firebase and GraphQL',
-      body: <Home user={user} />,
-    }),
-  },
-  {
-    path: '/account',
+    path: createPath('/account'),
     components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
     render: ({ user, components: [Account] }) => ({
       title: 'My Account • React Firebase Starter',
@@ -47,7 +44,7 @@ const routes = [
     }),
   },
   {
-    path: '/about',
+    path: createPath('/about'),
     components: () => [import(/* webpackChunkName: 'About' */ './About')],
     render: ({ user, components: [About] }) => ({
       title: 'About Us • React Firebase Starter',
@@ -55,7 +52,7 @@ const routes = [
     }),
   },
   {
-    path: '/privacy',
+    path: createPath('/privacy'),
     components: () => [import(/* webpackChunkName: 'Privacy' */ './Privacy')],
     render: ({ user, components: [Privacy] }) => ({
       title: 'Privacy Policy • React Firebase Starter',
@@ -63,7 +60,7 @@ const routes = [
     }),
   },
   {
-    path: '/dicebag',
+    path: createPath('/dicebag'),
     components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
     render: ({ user, components: [DiceBag] }) => ({
       title: 'TEMP Dice Bag view for dice',
@@ -73,7 +70,6 @@ const routes = [
 ];
 
 function resolveRoute(ctx) {
-  console.warn('ctx:', ctx);
   const { route } = ctx;
 
   if (!route.render) {
@@ -93,12 +89,12 @@ function resolveRoute(ctx) {
   );
 }
 
-export const routeNames = {
-  About: 'about',
-  Account: 'account',
-  DiceBag: 'dicebag',
-  Home: '',
-  Privacy: 'privacy',
-};
+// export const routeNames = {
+//   About: 'about',
+//   Account: 'account',
+//   DiceBag: 'dicebag',
+//   Home: '',
+//   Privacy: 'privacy',
+// };
 
 export default new UniversalRouter(routes, { resolveRoute });
