@@ -1,14 +1,14 @@
 {
+  "About.js": "static/js/About.fb1da4d3.chunk.js",
+  "About.js.map": "static/js/About.fb1da4d3.chunk.js.map",
   "Account.js": "static/js/Account.6f128c49.chunk.js",
   "Account.js.map": "static/js/Account.6f128c49.chunk.js.map",
   "DiceBag.js": "static/js/DiceBag.52c4bc58.chunk.js",
   "DiceBag.js.map": "static/js/DiceBag.52c4bc58.chunk.js.map",
-  "about.js": "static/js/about.072d55cb.chunk.js",
-  "about.js.map": "static/js/about.072d55cb.chunk.js.map",
-  "home.js": "static/js/home.0be0396a.chunk.js",
-  "home.js.map": "static/js/home.0be0396a.chunk.js.map",
-  "main.js": "static/js/main.0f82ae03.js",
-  "main.js.map": "static/js/main.0f82ae03.js.map",
-  "privacy.js": "static/js/privacy.49b8d226.chunk.js",
-  "privacy.js.map": "static/js/privacy.49b8d226.chunk.js.map"
+  "Home.js": "static/js/Home.b62a1d4d.chunk.js",
+  "Home.js.map": "static/js/Home.b62a1d4d.chunk.js.map",
+  "Privacy.js": "static/js/Privacy.5227d093.chunk.js",
+  "Privacy.js.map": "static/js/Privacy.5227d093.chunk.js.map",
+  "main.js": "static/js/main.f44da1b6.js",
+  "main.js.map": "static/js/main.f44da1b6.js.map"
 }
