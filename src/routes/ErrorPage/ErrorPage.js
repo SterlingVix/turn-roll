@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 import history from '../../history';
 import Link from '../../components/Link';
+import { routePaths } from '../../routes';
 
 const color = '#607d8b';
 
@@ -114,7 +115,7 @@ class ErrorPage extends React.Component<any, Props, any> {
             </Text>
           )}
           <Text>
-            <a href="/" onClick={this.goBack}>
+            <a href={routePaths.home} onClick={this.goBack}>
               Go back
             </a>
             , or head over to the&nbsp;

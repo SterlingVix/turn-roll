@@ -13,6 +13,7 @@ import Typography from 'material-ui/Typography';
 
 import { Centered } from '../../components/App/App';
 import Link from '../../components/Link';
+import { routePaths } from '../../routes';
 
 const Container = styled.div`
   max-width: 600px;
@@ -35,7 +36,7 @@ class Home extends React.Component<{}> {
         <Content>
           <Centered>
             <Typography type="headline" paragraph>
-              <Link href="/dicebag">{linkText}</Link>
+              <Link href={routePaths.diceBag}>{linkText}</Link>
             </Typography>
           </Centered>
         </Content>
