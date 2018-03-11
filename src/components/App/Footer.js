@@ -49,7 +49,7 @@ class Footer extends React.Component<{}> {
         <Separator>|</Separator>
         <ExtLink href="/privacy">Privacy Policy</ExtLink>
         <Separator>|</Separator>
-        <ExtLink href="/DiceBag">DiceBag</ExtLink>
+        <ExtLink href="/dicebag">DiceBag</ExtLink>
       </Container>
     );
   }

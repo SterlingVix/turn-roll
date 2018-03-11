@@ -14,14 +14,14 @@ import App from './components/App';
 import auth from './auth';
 import history from './history';
 import routes from './routes';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker'; // Don't want offline service workers, too complicated!
+import { unregister } from './registerServiceWorker';
 
 firebase.initializeApp({
   // apiKey: 'AIzaSyAsuqpqt29-TIwBAu01Nbt5QnC3FIKO4A4',
   // authDomain: 'react-firebase-graphql.firebaseapp.com',
   // databaseURL: 'https://react-firebase-graphql.firebaseio.com',
   // projectId: 'react-firebase-graphql',
-  // storageBucket: 'react-firebase-graphql.appspot.com',
   // storageBucket: 'react-firebase-graphql.appspot.com',
   // messagingSenderId: '564620986275',
   apiKey: 'AIzaSyCAftoU8G615Pcpl6dApwJLUTuL6Y0n-zA',
@@ -35,7 +35,6 @@ firebase.initializeApp({
 const render = props =>
   new Promise((resolve, reject) => {
     try {
-      console.log(`  props`, props);
       ReactDOM.render(
         <App {...props} />,
         document.getElementById('root'),
@@ -71,4 +70,4 @@ auth.onAuthStateChanged(user => {
   promise = resolve(promise.then(x => ({ ...x, user })));
 });
 
-registerServiceWorker();
+unregister();

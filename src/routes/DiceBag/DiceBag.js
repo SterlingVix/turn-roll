@@ -24,16 +24,15 @@ const Content = styled(Card)`
 `;
 
 const Row = styled(Card)`
+  /* Center contents and apply equal margins between. */
+  display: flex;
+  justify-content: space-around; /* or space-between */
+  align-items: center;
   padding: 0.66em;
   border: solid pink 1px;
   border-radius: 3px;
 
-  // Center contents and apply equal margins between.
-  display: flex;
-  justify-content: space-around; // or space-between
-  align-items: center;
-
-  // All children are flex, too. :)
+  /* All children are flex, too. :) */
   & * {
     display: flex;
     justify-content: space-around;
@@ -42,7 +41,7 @@ const Row = styled(Card)`
 `;
 
 const Result = styled(Card)`
-  // padding: 0.66em; deferring to flex for spacing.
+  /* padding: 0.66em; deferring to flex for spacing. */
   width: 3em;
   height: 3em;
   border: solid black 1px;
@@ -54,12 +53,11 @@ const valueColor = 'orange';
 const DieValue = styled.div`
   width: 3em;
   height: 3em;
+  margin: 0 0.5em;
+  font-size: 1.5rem;
+  color: ${valueColor};
   border-bottom: solid ${valueColor} 1px;
   border-radius: 0.3em;
-  margin: 0 0.5em;
-
-  color: ${valueColor};
-  font-size: 1.5rem;
 `;
 
 const ButtonReroll = styled(Button)`
@@ -87,7 +85,7 @@ class Home extends Component<{}> {
 
   setResults = row => {
     // returns an Array[]
-    const { die, results, size } = row;
+    const { die, size } = row;
 
     // TODO: what's the best way to do this? Is this state too nested?
     let newResults = [];
@@ -95,13 +93,6 @@ class Home extends Component<{}> {
     for (let i = 0; i < size; i++) {
       newResults.push(1 + Math.floor(Math.random() * Math.floor(die)));
     }
-
-    console.log(
-      'Removing old results:',
-      results,
-      'and replacing with new results:',
-      newResults,
-    );
 
     // Return a new Row value:
     return {
@@ -116,20 +107,18 @@ class Home extends Component<{}> {
       rows: this.state.rows.map(this.setResults),
     });
 
-  renderRow = row => {
+  renderRow = (row, index) => {
     return (
-      <Row>
+      <Row key={`DiceRow-${index}`}>
         <DieValue>{row.die}s:</DieValue>
         {row.results.map(this.renderResult)}
       </Row>
     );
   };
 
-  renderResult = (thisDie, index, array) => {
-    console.log(`  array`, array);
-
-    return <Result key={`result-${index}`}>{thisDie}</Result>;
-  };
+  renderResult = (thisDie, index) => (
+    <Result key={`result-${index}`}>{thisDie}</Result>
+  );
 
   render() {
     const { rows } = this.state;
@@ -143,9 +132,9 @@ class Home extends Component<{}> {
               Reroll
             </ButtonReroll>
           </Typography>
-          <Typography type="body1" paragraph>
-            {rows.map(this.renderRow)}
-          </Typography>
+          {/*<Typography type="body1" paragraph>*/}
+          {rows.map(this.renderRow)}
+          {/*</Typography>*/}
         </Content>
       </Container>
     );

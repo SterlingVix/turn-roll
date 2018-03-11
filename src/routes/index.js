@@ -16,7 +16,15 @@ import UniversalRouter from 'universal-router/main.js';
 const routes = [
   {
     path: '',
-    components: () => [import(/* webpackChunkName: 'home' */ './Home')],
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
+    render: ({ user, components: [Home] }) => ({
+      title: 'React Starter Kit for Firebase and GraphQL',
+      body: <Home user={user} />,
+    }),
+  },
+  {
+    path: '/',
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'React Starter Kit for Firebase and GraphQL',
       body: <Home user={user} />,
@@ -32,7 +40,7 @@ const routes = [
   },
   {
     path: '/about',
-    components: () => [import(/* webpackChunkName: 'about' */ './About')],
+    components: () => [import(/* webpackChunkName: 'About' */ './About')],
     render: ({ user, components: [About] }) => ({
       title: 'About Us • React Firebase Starter',
       body: <About user={user} />,
@@ -40,14 +48,14 @@ const routes = [
   },
   {
     path: '/privacy',
-    components: () => [import(/* webpackChunkName: 'privacy' */ './Privacy')],
+    components: () => [import(/* webpackChunkName: 'Privacy' */ './Privacy')],
     render: ({ user, components: [Privacy] }) => ({
       title: 'Privacy Policy • React Firebase Starter',
       body: <Privacy user={user} />,
     }),
   },
   {
-    path: '/DiceBag',
+    path: '/dicebag',
     components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
     render: ({ user, components: [DiceBag] }) => ({
       title: 'TEMP Dice Bag view for dice',
@@ -57,6 +65,7 @@ const routes = [
 ];
 
 function resolveRoute(ctx) {
+  console.warn('ctx:', ctx);
   const { route } = ctx;
 
   if (!route.render) {
@@ -77,7 +86,11 @@ function resolveRoute(ctx) {
 }
 
 export const routeNames = {
-  DiceBag: 'DiceBag',
+  About: 'about',
+  Account: 'account',
+  DiceBag: 'dicebag',
+  Home: '',
+  Privacy: 'privacy',
 };
 
 export default new UniversalRouter(routes, { resolveRoute });
