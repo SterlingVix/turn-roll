@@ -17,7 +17,7 @@ const createPath = pathFragment =>
     ? `${pathFragment}`
     : `${rootPath}${pathFragment}`;
 
-// console.warn(process.env);
+console.warn(process.env);
 
 const about = '/about';
 const account = '/account';
@@ -30,14 +30,6 @@ const privacy = '/privacy';
 // and a render() function which shapes the result to be passed into the top-level (App) component.
 // For more information visit https://github.com/kriasoft/universal-router
 const routes = [
-  {
-    path: home,
-    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
-    render: ({ user, components: [Home] }) => ({
-      title: 'TurnRoll - roll for your whole turn ("")',
-      body: <Home user={user} />,
-    }),
-  },
   {
     path: createPath(home),
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
@@ -89,6 +81,7 @@ const routes = [
 ];
 
 function resolveRoute(ctx) {
+  console.warn('ctx:', ctx);
   const { route } = ctx;
 
   if (!route.render) {
@@ -108,12 +101,12 @@ function resolveRoute(ctx) {
   );
 }
 
-// export const routeNames = {
-//   About: 'about',
-//   Account: 'account',
-//   DiceBag: 'dicebag',
-//   Home: '',
-//   Privacy: 'privacy',
-// };
+export const routeNames = {
+  About: 'about',
+  Account: 'account',
+  DiceBag: 'dicebag',
+  Home: '',
+  Privacy: 'privacy',
+};
 
 export default new UniversalRouter(routes, { resolveRoute });
