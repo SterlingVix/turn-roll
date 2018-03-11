@@ -11,8 +11,19 @@ import UniversalRouter from 'universal-router/main.js';
 
 // Not sure why `/turn-roll/` isn't resolving automatically, but whatever, this works for now.
 // NOTE: This page was very helpful: https://github.com/rafrex/spa-github-pages
-const rootPath = '/turnRoll';
-const createPath = pathFragment => `${rootPath}${pathFragment}`;
+const rootPath = '/turn-roll';
+const createPath = pathFragment =>
+  process.env.NODE_ENV === 'development'
+    ? `${pathFragment}`
+    : `${rootPath}${pathFragment}`;
+
+// console.warn(process.env);
+
+const about = '/about';
+const account = '/account';
+const diceBag = '/dicebag';
+const home = '';
+const privacy = '/privacy';
 
 // The list of all application routes where each route contains a URL path string (pattern),
 // the list of components to load asynchroneously (chunks), data requirements (GraphQL query),
@@ -20,10 +31,18 @@ const createPath = pathFragment => `${rootPath}${pathFragment}`;
 // For more information visit https://github.com/kriasoft/universal-router
 const routes = [
   {
-    path: createPath(''),
+    path: home,
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
-      title: 'React Starter Kit for Firebase and GraphQL',
+      title: 'TurnRoll - roll for your whole turn ("")',
+      body: <Home user={user} />,
+    }),
+  },
+  {
+    path: createPath(home),
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
+    render: ({ user, components: [Home] }) => ({
+      title: 'TurnRoll - roll for your whole turn ("/turn-roll")',
       body: <Home user={user} />,
     }),
   },
@@ -31,12 +50,12 @@ const routes = [
     path: createPath('/'),
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
-      title: 'React Starter Kit for Firebase and GraphQL',
+      title: 'TurnRoll - roll for your whole turn ("/turn-roll/")',
       body: <Home user={user} />,
     }),
   },
   {
-    path: createPath('/account'),
+    path: createPath(account),
     components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
     render: ({ user, components: [Account] }) => ({
       title: 'My Account • React Firebase Starter',
@@ -44,7 +63,7 @@ const routes = [
     }),
   },
   {
-    path: createPath('/about'),
+    path: createPath(about),
     components: () => [import(/* webpackChunkName: 'About' */ './About')],
     render: ({ user, components: [About] }) => ({
       title: 'About Us • React Firebase Starter',
@@ -52,7 +71,7 @@ const routes = [
     }),
   },
   {
-    path: createPath('/privacy'),
+    path: createPath(privacy),
     components: () => [import(/* webpackChunkName: 'Privacy' */ './Privacy')],
     render: ({ user, components: [Privacy] }) => ({
       title: 'Privacy Policy • React Firebase Starter',
@@ -60,7 +79,7 @@ const routes = [
     }),
   },
   {
-    path: createPath('/dicebag'),
+    path: createPath(diceBag),
     components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
     render: ({ user, components: [DiceBag] }) => ({
       title: 'TEMP Dice Bag view for dice',
