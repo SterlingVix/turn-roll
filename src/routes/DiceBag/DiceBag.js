@@ -46,6 +46,12 @@ const Result = styled(Card)`
   height: 3em;
   border: solid black 1px;
   border-radius: 0.1em;
+  user-select: none;
+  cursor: cell;
+  cursor: copy;
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
 
 // TODO: This is basically a copy of "Result". Can this be de-duplicated?
@@ -56,8 +62,14 @@ const DieValue = styled.div`
   margin: 0 0.5em;
   font-size: 1.5rem;
   color: ${valueColor};
+  border: solid transparent 1px;
   border-bottom: solid ${valueColor} 1px;
   border-radius: 0.3em;
+  user-select: none;
+  cursor: default;
+  &:hover {
+    border: solid ${valueColor} 1px;
+  }
 `;
 
 const ButtonReroll = styled(Button)`

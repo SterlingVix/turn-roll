@@ -8,6 +8,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { routePaths } from '../../routes';
+import Link from '../Link';
 
 const Container = styled.div`
   position: fixed;
@@ -47,9 +49,9 @@ class Footer extends React.Component<{}> {
         <Copyright css="padding-right: 0.5em">&copy; 2015-present</Copyright>
         <ExtLink href="https://github.com/kriasoft">Kriasoft</ExtLink>
         <Separator>|</Separator>
-        <ExtLink href="/privacy">Privacy Policy</ExtLink>
+        <Link href={routePaths.privacy}>Privacy Policy</Link>
         <Separator>|</Separator>
-        <ExtLink href="/dicebag">DiceBag</ExtLink>
+        <Link href={routePaths.diceBag}>DiceBag</Link>
       </Container>
     );
   }

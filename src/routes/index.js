@@ -11,19 +11,19 @@ import UniversalRouter from 'universal-router/main.js';
 
 // Not sure why `/turn-roll/` isn't resolving automatically, but whatever, this works for now.
 // NOTE: This page was very helpful: https://github.com/rafrex/spa-github-pages
-const rootPath = '/turn-roll';
-const createPath = pathFragment =>
-  process.env.NODE_ENV === 'development'
-    ? `${pathFragment}`
-    : `${rootPath}${pathFragment}`;
+const createPath = pathFragment => `${process.env.PUBLIC_URL}${pathFragment}`; // PUBLIC_URL resolves to '/turn-roll' in production.
 
 console.warn(process.env);
 
-const about = '/about';
-const account = '/account';
-const diceBag = '/dicebag';
-const home = '';
-const privacy = '/privacy';
+export const routePaths = {
+  about: createPath('/about'),
+  account: createPath('/account'),
+  diceBag: createPath('/dicebag'),
+  error: createPath('/error'),
+  home: createPath(''),
+  homeSlash: createPath('/'),
+  privacy: createPath('/privacy'),
+};
 
 // The list of all application routes where each route contains a URL path string (pattern),
 // the list of components to load asynchroneously (chunks), data requirements (GraphQL query),
@@ -31,15 +31,15 @@ const privacy = '/privacy';
 // For more information visit https://github.com/kriasoft/universal-router
 const routes = [
   {
-    path: createPath(home),
+    path: routePaths.home,
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
-      title: 'TurnRoll - roll for your whole turn ("/turn-roll")',
+      title: 'TurnRoll - roll for your whole turn',
       body: <Home user={user} />,
     }),
   },
   {
-    path: createPath('/'),
+    path: '/',
     components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'TurnRoll - roll for your whole turn ("/turn-roll/")',
@@ -47,7 +47,7 @@ const routes = [
     }),
   },
   {
-    path: createPath(account),
+    path: routePaths.account,
     components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
     render: ({ user, components: [Account] }) => ({
       title: 'My Account • React Firebase Starter',
@@ -55,7 +55,7 @@ const routes = [
     }),
   },
   {
-    path: createPath(about),
+    path: routePaths.about,
     components: () => [import(/* webpackChunkName: 'About' */ './About')],
     render: ({ user, components: [About] }) => ({
       title: 'About Us • React Firebase Starter',
@@ -63,7 +63,7 @@ const routes = [
     }),
   },
   {
-    path: createPath(privacy),
+    path: routePaths.privacy,
     components: () => [import(/* webpackChunkName: 'Privacy' */ './Privacy')],
     render: ({ user, components: [Privacy] }) => ({
       title: 'Privacy Policy • React Firebase Starter',
@@ -71,7 +71,7 @@ const routes = [
     }),
   },
   {
-    path: createPath(diceBag),
+    path: routePaths.diceBag,
     components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
     render: ({ user, components: [DiceBag] }) => ({
       title: 'TEMP Dice Bag view for dice',
@@ -101,12 +101,12 @@ function resolveRoute(ctx) {
   );
 }
 
-export const routeNames = {
-  About: 'about',
-  Account: 'account',
-  DiceBag: 'dicebag',
-  Home: '',
-  Privacy: 'privacy',
-};
+// export const routeNames = {
+//   About: 'about',
+//   Account: 'account',
+//   DiceBag: 'dicebag',
+//   Home: '',
+//   Privacy: 'privacy',
+// };
 
 export default new UniversalRouter(routes, { resolveRoute });

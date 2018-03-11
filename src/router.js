@@ -8,6 +8,7 @@
 import React from 'react';
 import Router from 'universal-router';
 import { graphql } from 'relay-runtime';
+import { routePaths } from 'routes';
 
 // The list of all application routes where each route contains a URL path string (pattern),
 // the list of components to load asynchronously (chunks), data requirements (GraphQL query),
@@ -43,7 +44,7 @@ const routes = [
     }),
   },
   {
-    path: '/error',
+    path: routePaths.error,
     components: () => [import(/* webpackChunkName: 'main' */ './ErrorPage')],
     render: ([ErrorPage]) => ({
       title: 'Error',
@@ -62,7 +63,7 @@ const routes = [
     }),
   },
   {
-    path: '/about',
+    path: routePaths.about,
     query: graphql`query routerAboutQuery { me { ...App_me } }`, // prettier-ignore
     components: () => [import(/* webpackChunkName: 'about' */ './About')],
     render: ([About]) => ({

@@ -11,8 +11,8 @@ import styled from 'styled-components';
 import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
-import { ExtLink } from '../../components/App/Footer';
 import { Centered } from '../../components/App/App';
+import Link from '../../components/Link';
 
 const Container = styled.div`
   max-width: 600px;
@@ -35,7 +35,7 @@ class Home extends React.Component<{}> {
         <Content>
           <Centered>
             <Typography type="headline" paragraph>
-              <ExtLink href="/dicebag">{linkText}</ExtLink>
+              <Link href="/dicebag">{linkText}</Link>
             </Typography>
           </Centered>
         </Content>

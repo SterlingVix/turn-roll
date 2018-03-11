@@ -20,6 +20,7 @@ import auth from '../../auth';
 import history from '../../history';
 import Link from '../../components/Link';
 import LoginDialog from './LoginDialog';
+import { routePaths } from '../../routes';
 
 const Title = styled(Typography)`
   && {
@@ -30,7 +31,7 @@ const Title = styled(Typography)`
 `;
 
 function goHome() {
-  history.push('/');
+  history.push(routePaths.homeSlash);
 }
 
 class Toolbar extends React.Component<{}, {}> {
@@ -66,7 +67,7 @@ class Toolbar extends React.Component<{}, {}> {
 
   goToAccount = () => {
     this.setState({ accountMenuAnchor: null });
-    history.push('/account');
+    history.push(routePaths.account);
   };
 
   render() {
@@ -95,7 +96,11 @@ class Toolbar extends React.Component<{}, {}> {
           )}
           {this.props.user === null && (
             <React.Fragment>
-              <Button color="inherit" href="/about" onClick={Link.handleClick}>
+              <Button
+                color="inherit"
+                href={routePaths.about}
+                onClick={Link.handleClick}
+              >
                 About Us
               </Button>
               <Button color="inherit" onClick={auth.showLoginDialog}>
