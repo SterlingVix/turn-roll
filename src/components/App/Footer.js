@@ -46,12 +46,15 @@ class Footer extends React.Component<{}> {
   render() {
     return (
       <Container>
-        <Copyright css="padding-right: 0.5em">&copy; 2015-present</Copyright>
-        <ExtLink href="https://github.com/kriasoft">Kriasoft</ExtLink>
+        <ExtLink href="https://github.com/SterlingVix">Aaron Melocik</ExtLink>
+        <Separator> & </Separator>
+        <ExtLink href="https://github.com/carmella718">Carmella Peeler</ExtLink>
+        <Separator> with </Separator>
+        <ExtLink href="https://github.com/kriasoft/react-firebase-starter">
+          Kriasoft/react-starter-kit
+        </ExtLink>
         <Separator>|</Separator>
         <Link href={routePaths.privacy}>Privacy Policy</Link>
-        <Separator>|</Separator>
-        <Link href={routePaths.diceBag}>DiceBag</Link>
       </Container>
     );
   }
