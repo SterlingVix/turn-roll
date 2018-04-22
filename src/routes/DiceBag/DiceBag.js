@@ -5,12 +5,13 @@
  */
 
 /* @flow */
-
+import Button from 'material-ui/Button';
+import Card from 'material-ui/Card';
+import DiceGroup from './DiceGroup';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 
 const Container = styled.div`
   max-width: 600px;
@@ -77,7 +78,7 @@ const ButtonReroll = styled(Button)`
   text-align: center;
 `;
 
-class Home extends Component<{}> {
+class DiceBag extends Component<{}> {
   state = {
     rows: [
       { die: 100, size: 6 },
@@ -128,10 +129,6 @@ class Home extends Component<{}> {
     );
   };
 
-  renderResult = (thisDie, index) => (
-    <Result key={`result-${index}`}>{thisDie}</Result>
-  );
-
   render() {
     const { rows } = this.state;
 
@@ -145,7 +142,16 @@ class Home extends Component<{}> {
             </ButtonReroll>
           </Typography>
           {/*<Typography type="body1" paragraph>*/}
-          {rows.map(this.renderRow)}
+          {rows.map((row, index) => (
+            <Row key={`DiceRow-${index}`}>
+              <DieValue>{row.die}s:</DieValue>
+              {row.results.map((thisDie, index) => (
+                <DiceGroup key={`result-${index}`}>
+                  <Result key={`result-${index}`}>{thisDie}</Result>
+                </DiceGroup>
+              ))}
+            </Row>
+          ))}
           {/*</Typography>*/}
         </Content>
       </Container>
@@ -153,4 +159,8 @@ class Home extends Component<{}> {
   }
 }
 
-export default Home;
+DiceBag.propTypes = {
+  user: PropTypes.object.isRequired,
+};
+
+export default DiceBag;
