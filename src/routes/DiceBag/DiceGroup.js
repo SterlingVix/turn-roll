@@ -6,14 +6,15 @@
 
 /* @flow */
 
-import Button from 'material-ui/Button';
+// import Button from 'material-ui/Button';
 import Card from 'material-ui/Card';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Typography from 'material-ui/Typography';
-import Input, { InputLabel } from 'material-ui/Input';
-import TextField from 'material-ui/TextField';
+// import Typography from 'material-ui/Typography';
+// import Input, { InputLabel } from 'material-ui/Input';
+import Input from 'material-ui/Input';
+// import TextField from 'material-ui/TextField';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 
 const Container = styled.div`
@@ -22,10 +23,10 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Content = styled(Card)`
-  padding: 1em 2em;
-  margin: 2em 0;
-`;
+// const Content = styled(Card)`
+//   padding: 1em 2em;
+//   margin: 2em 0;
+// `;
 
 const Column = styled(Card)`
   /* Center contents and apply equal margins between. */
@@ -45,42 +46,42 @@ const Column = styled(Card)`
   }
 `;
 
-const Result = styled(Card)`
-  /* padding: 0.66em; deferring to flex for spacing. */
-  width: 3em;
-  height: 3em;
-  border: solid black 1px;
-  border-radius: 0.1em;
-  user-select: none;
-  cursor: cell;
-  cursor: copy;
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+// const Result = styled(Card)`
+//   /* padding: 0.66em; deferring to flex for spacing. */
+//   width: 3em;
+//   height: 3em;
+//   border: solid black 1px;
+//   border-radius: 0.1em;
+//   user-select: none;
+//   cursor: cell;
+//   cursor: copy;
+//   &:hover {
+//     background-color: lightgrey;
+//   }
+// `;
 
 // TODO: This is basically a copy of "Result". Can this be de-duplicated?
-const valueColor = 'orange';
-const DieValue = styled.div`
-  width: 3em;
-  height: 3em;
-  margin: 0 0.5em;
-  font-size: 1.5rem;
-  color: ${valueColor};
-  border: solid transparent 1px;
-  border-bottom: solid ${valueColor} 1px;
-  border-radius: 0.3em;
-  user-select: none;
-  cursor: default;
-  &:hover {
-    border: solid ${valueColor} 1px;
-  }
-`;
+// const valueColor = 'orange';
+// const DieValue = styled.div`
+//   width: 3em;
+//   height: 3em;
+//   margin: 0 0.5em;
+//   font-size: 1.5rem;
+//   color: ${valueColor};
+//   border: solid transparent 1px;
+//   border-bottom: solid ${valueColor} 1px;
+//   border-radius: 0.3em;
+//   user-select: none;
+//   cursor: default;
+//   &:hover {
+//     border: solid ${valueColor} 1px;
+//   }
+// `;
 
-const ButtonReroll = styled(Button)`
-  padding: 0.33em;
-  text-align: center;
-`;
+// const ButtonReroll = styled(Button)`
+// padding: 0.33em;
+// text-align: center;
+// `;
 
 const MAX_LENGTH = 8;
 

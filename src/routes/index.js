@@ -13,8 +13,6 @@ import UniversalRouter from 'universal-router/main.js';
 // NOTE: This page was very helpful: https://github.com/rafrex/spa-github-pages
 const createPath = pathFragment => `${process.env.PUBLIC_URL}${pathFragment}`; // PUBLIC_URL resolves to '/turn-roll' in production.
 
-console.warn(process.env);
-
 export const routePaths = {
   about: createPath('/about'),
   account: createPath('/account'),
@@ -81,7 +79,6 @@ const routes = [
 ];
 
 function resolveRoute(ctx) {
-  console.warn('ctx:', ctx);
   const { route } = ctx;
 
   if (!route.render) {

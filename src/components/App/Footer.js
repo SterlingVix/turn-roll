@@ -19,10 +19,6 @@ const Container = styled.div`
   color: rgba(0, 0, 0, 0.4);
 `;
 
-const Copyright = styled.span`
-  padding-right: 0.5em;
-`;
-
 const Separator = styled.span`
   padding-right: 0.5em;
   padding-left: 0.5em;
