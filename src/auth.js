@@ -37,7 +37,6 @@ export default {
   },
 
   onAuthStateChanged(callback: any => void) {
-    console.log(`  callback`, callback);
     // firebase.auth().onAuthStateChanged(onLogin);
     firebase.auth().onAuthStateChanged(callback);
   },

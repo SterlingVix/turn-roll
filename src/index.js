@@ -58,9 +58,7 @@ const resolve = promise =>
 let promise;
 
 auth.onAuthStateChanged(user => {
-  const facebookID = user && user.uid;
-  console.log(`  facebookID`, facebookID);
-
+  // const facebookID = user && user.uid;
   if (!promise) {
     promise = Promise.resolve({ user, location: history.location });
     history.listen(location => {
