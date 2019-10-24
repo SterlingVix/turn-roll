@@ -12,7 +12,7 @@ import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
 import { Centered } from '../../components/App/App';
-import Link from '../../components/Link';
+import Link from '../../components/Link/Link';
 import { routePaths } from '../../routes/routes';
 
 const Container = styled.div`

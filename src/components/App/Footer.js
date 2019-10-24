@@ -9,7 +9,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { routePaths } from '../../routes/routes';
-import Link from '../Link';
+import Link from '../Link/Link';
 
 const Container = styled.div`
   position: fixed;

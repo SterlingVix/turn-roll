@@ -10,7 +10,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from '@firebase/app';
 
-import App from './components/App';
+import App from './components/App/App';
 import auth from './auth';
 import history from './history';
 import routes from './routes/routes';
