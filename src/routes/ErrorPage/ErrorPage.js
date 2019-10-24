@@ -10,7 +10,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import history from '../../history';
-import Link from '../../components/Link';
+import Link from '../../components/Link/Link';
 import { routePaths } from '../../routes';
 
 const color = '#607d8b';
