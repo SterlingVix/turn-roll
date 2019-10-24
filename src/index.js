@@ -13,7 +13,7 @@ import firebase from '@firebase/app';
 import App from './components/App';
 import auth from './auth';
 import history from './history';
-import routes from './routes';
+import routes from './routes/routes';
 // import registerServiceWorker from './registerServiceWorker'; // Don't want offline service workers, too complicated!
 import { unregister } from './registerServiceWorker';
 

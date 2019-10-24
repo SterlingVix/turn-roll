@@ -30,7 +30,7 @@ export const routePaths = {
 const routes = [
   {
     path: routePaths.home,
-    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home/Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'TurnRoll - roll for your whole turn',
       body: <Home user={user} />,
@@ -38,7 +38,7 @@ const routes = [
   },
   {
     path: '/',
-    components: () => [import(/* webpackChunkName: 'Home' */ './Home')],
+    components: () => [import(/* webpackChunkName: 'Home' */ './Home/Home')],
     render: ({ user, components: [Home] }) => ({
       title: 'TurnRoll - roll for your whole turn ("/turn-roll/")',
       body: <Home user={user} />,
@@ -46,7 +46,9 @@ const routes = [
   },
   {
     path: routePaths.account,
-    components: () => [import(/* webpackChunkName: 'Account' */ './Account')],
+    components: () => [
+      import(/* webpackChunkName: 'Account' */ './Account/Account'),
+    ],
     render: ({ user, components: [Account] }) => ({
       title: 'My Account • React Firebase Starter',
       body: <Account user={user} />,
@@ -54,7 +56,7 @@ const routes = [
   },
   {
     path: routePaths.about,
-    components: () => [import(/* webpackChunkName: 'About' */ './About')],
+    components: () => [import(/* webpackChunkName: 'About' */ './About/About')],
     render: ({ user, components: [About] }) => ({
       title: 'About Us • React Firebase Starter',
       body: <About user={user} />,
@@ -62,7 +64,9 @@ const routes = [
   },
   {
     path: routePaths.privacy,
-    components: () => [import(/* webpackChunkName: 'Privacy' */ './Privacy')],
+    components: () => [
+      import(/* webpackChunkName: 'Privacy' */ './Privacy/Privacy'),
+    ],
     render: ({ user, components: [Privacy] }) => ({
       title: 'Privacy Policy • React Firebase Starter',
       body: <Privacy user={user} />,
@@ -70,7 +74,9 @@ const routes = [
   },
   {
     path: routePaths.diceBag,
-    components: () => [import(/* webpackChunkName: 'DiceBag' */ './DiceBag')],
+    components: () => [
+      import(/* webpackChunkName: 'DiceBag' */ './DiceBag/DiceBag'),
+    ],
     render: ({ user, components: [DiceBag] }) => ({
       title: 'TEMP Dice Bag view for dice',
       body: <DiceBag user={user} />,

@@ -13,7 +13,7 @@ import Typography from 'material-ui/Typography';
 
 import { Centered } from '../../components/App/App';
 import Link from '../../components/Link';
-import { routePaths } from '../../routes';
+import { routePaths } from '../../routes/routes';
 
 const Container = styled.div`
   max-width: 600px;
