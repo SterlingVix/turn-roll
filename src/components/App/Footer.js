@@ -8,7 +8,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { routePaths } from '../../routes';
+import { routePaths } from '../../routes/routes';
 import Link from '../Link';
 
 const Container = styled.div`

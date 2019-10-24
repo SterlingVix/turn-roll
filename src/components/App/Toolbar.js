@@ -20,7 +20,7 @@ import auth from '../../auth';
 import history from '../../history';
 import Link from '../../components/Link';
 import LoginDialog from './LoginDialog';
-import { routePaths } from '../../routes';
+import { routePaths } from '../../routes/routes';
 
 const Title = styled(Typography)`
   && {

@@ -8,7 +8,7 @@
 import React from 'react';
 import Router from 'universal-router';
 import { graphql } from 'relay-runtime';
-import { routePaths } from 'routes';
+import { routePaths } from 'routes/routes';
 
 // The list of all application routes where each route contains a URL path string (pattern),
 // the list of components to load asynchronously (chunks), data requirements (GraphQL query),
@@ -22,7 +22,7 @@ const routes = [
       stories(first: 50) { ...Home_stories }
     }`, // prettier-ignore
     components: () => [
-      import(/* webpackChunkName: 'home' */ './Home'),
+      import(/* webpackChunkName: 'home' */ './Home/Home'),
       import(/* webpackChunkName: 'home' */ './Home/Hero'),
     ],
     render: ([Home, Hero], data) => ({
@@ -45,7 +45,9 @@ const routes = [
   },
   {
     path: routePaths.error,
-    components: () => [import(/* webpackChunkName: 'main' */ './ErrorPage')],
+    components: () => [
+      import(/* webpackChunkName: 'main' */ './ErrorPage/ErrorPage'),
+    ],
     render: ([ErrorPage]) => ({
       title: 'Error',
       body: <ErrorPage />,
@@ -65,7 +67,7 @@ const routes = [
   {
     path: routePaths.about,
     query: graphql`query routerAboutQuery { me { ...App_me } }`, // prettier-ignore
-    components: () => [import(/* webpackChunkName: 'about' */ './About')],
+    components: () => [import(/* webpackChunkName: 'about' */ './About/About')],
     render: ([About]) => ({
       title: 'About Us',
       body: <About />,
@@ -73,7 +75,7 @@ const routes = [
   },
   {
     path: '/tasks/:status(pending|completed)?',
-    components: () => [import(/* webpackChunkName: 'home' */ './Home')],
+    components: () => [import(/* webpackChunkName: 'home' */ './Home/Home')],
     render: ([Home]) => ({
       title: 'Untitled Page',
       body: <Home />,
